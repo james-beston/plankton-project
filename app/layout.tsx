@@ -2,11 +2,13 @@ import { Inter, Roboto_Mono } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
+  subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap'
 });
 
 const roboto_mono = Roboto_Mono({
+  subsets: ['latin'],
   variable: '--font-roboto-mono',
   display: 'swap'
 });
@@ -22,8 +24,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${roboto_mono.variable} bg-teal-800 h-screen w-screen text-slate-50`}>
-      <body>{children}</body>
+    <html lang="en" className={`${inter.variable} ${roboto_mono.variable} bg-teal-50/50 text-slate-950`}>
+      <body className="h-screen w-screen">
+        {children}
+      </body>
     </html>
   )
 }

@@ -11,7 +11,12 @@ module.exports = {
         sans: ['var(--font-inter)'],
         mono: ['var(--font-roboto-mono)'],
       },
+      dropShadow: {
+        'glow': '0 0 10px 5px rgba(255, 255, 255, 1)',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
