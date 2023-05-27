@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Footer from '@/ui/footer';
 import Link from 'next/link';
 
 const navlist = [
@@ -10,8 +9,8 @@ const navlist = [
 
 export default function Home() {
   return (
-    <div className="w-screen h-screen">
-      <main className="z-10 h-screen max-w-3xl mx-6 lg:mx-auto flex flex-col items-center justify-center space-y-6">
+    <div className="h-full">
+      <main className="h-screen z-10 max-w-3xl mx-6 lg:mx-auto flex flex-col items-center justify-center space-y-6">
         <h1 className="text-6xl font-mono font-semibold text-center text-white">The Plankton Project_</h1>
         <p className="text-2xl font-light text-teal-200 text-center">A CIC dedicated to researching the diversity of near-shore plankton and sharing that knowledge with others.</p>
         <nav className="pt-4 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-12">
