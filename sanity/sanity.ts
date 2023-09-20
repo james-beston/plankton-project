@@ -1,8 +1,14 @@
 import { createClient, groq } from 'next-sanity';
+import imageUrlBuilder from '@sanity/image-url';
 import config from './config';
 import { cache } from 'react';
 
 export const sanityClient = createClient(config);
+const builder = imageUrlBuilder(sanityClient);
+
+export function urlFor(source: any) {
+  return builder.image(source);
+}
 
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient));
 
@@ -48,7 +54,7 @@ export async function phytoplanktonCount() {
   return clientFetch(
     groq`{
       "diatoms": count(*[_type == "diatoms"]),
-      "dinoflagalletes": count(*[_type == "dinoflagalletes"]),
+      "dinoflagellates": count(*[_type == "dinoflagellates"]),
       "other": count(*[_type == "otherPhytoplankton"]),
     }`
   );
@@ -84,5 +90,17 @@ export async function wormsCount() {
       "polychaeta": count(*[_type == "polychaeta"]),
       "other": count(*[_type == "otherWorms"]),
     }`
+  );
+}
+
+export async function getGenusList(genus: string) {
+  return clientFetch(
+    groq`*[_type == $genus] {
+      _id,
+      title,
+      "image": data.image.asset->url,
+      "slug": slug.current
+    } | order(title)`,
+    { genus }
   );
 }

@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 type PhytoplanktonCount = {
   diatoms: number,
-  dinoflagalletes: number,
+  dinoflagellates: number,
   other: number,
 }
 
@@ -30,11 +30,11 @@ export default async function Phytoplankton() {
         </li>
         <li>
           <Link
-            href="/directory/phytoplankton/dinoflagalletes"
+            href="/directory/phytoplankton/dinoflagellates"
             className="px-4 py-2 flex justify-between items-center bg-emerald-50 text-teal-900 hover:text-teal-800 hover:bg-emerald-100"
           >
-            <span>Dinoflagalletes</span>
-            <span className="text-xs border border-teal-600 px-2 py-1 rounded-md text-teal-600">{count.dinoflagalletes}</span>
+            <span>Dinoflagellates</span>
+            <span className="text-xs border border-teal-600 px-2 py-1 rounded-md text-teal-600">{count.dinoflagellates}</span>
           </Link>
         </li>
         <li>
