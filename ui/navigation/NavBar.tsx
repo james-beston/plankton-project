@@ -11,8 +11,9 @@ import { Bars3Icon, XMarkIcon  } from '@heroicons/react/24/solid'
 const menu = [
   { name: 'About', slug: 'about' },
   { name: 'Directory', slug: 'directory' },
-  { name: 'Blog', slug: 'blog' },
-  { name: 'Education', slug: 'education' },
+  { name: 'Fundraising', slug: 'fundraising' },
+  /* { name: 'Blog', slug: 'blog' },
+  { name: 'Education', slug: 'education' }, */
 ]
 
 export default function NavBar() {

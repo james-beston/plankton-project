@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default async function Page() {
   
-  const page = await getPage('about');
+  const page = await getPage('fundraising');
 
   if (!page) {
     return <div>Loading...</div>
@@ -13,15 +13,17 @@ export default async function Page() {
 
   return (
     <div className="flex flex-col space-y-12">
-      <div className="relative">
-        <Image
-          src={urlFor(page.image).width(768).height(512).url()}
-          alt=""
-          priority
-          width={768}
-          height={512}
-        />
-      </div>
+      {page.image && (
+        <div className="relative">
+          <Image
+            src={urlFor(page.image).width(768).height(512).url()}
+            alt=""
+            priority
+            width={768}
+            height={512}
+          />
+        </div>
+      )}
       <div className="prose max-w-none lg:prose-lg">
         <h1 className="text-teal-800 font-mono font-bold">{page.title}</h1>
         <PortableText value={page.text} />

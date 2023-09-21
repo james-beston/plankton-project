@@ -104,3 +104,16 @@ export async function getGenusList(genus: string) {
     { genus }
   );
 }
+
+export async function getGenusItem(genus: string, slug: string) {
+  return clientFetch(
+    groq`*[_type == $genus && slug.current == $slug][0] {
+      title,
+      "hero": data.image.asset->url,
+      "images": data.additionalImages[]{"url":asset->url},
+      "video": data.video.asset->url,
+      "text": data.text
+    }`,
+    { genus, slug }
+  );
+}
