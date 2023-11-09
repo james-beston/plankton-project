@@ -13,6 +13,10 @@ export default async function Phytoplankton() {
 
   const count: PhytoplanktonCount = await phytoplanktonCount()
 
+  if (!count) {
+    return <p>Loading...</p>
+  }
+
   return (
     <div>
       <h2 className="flex w-full rounded-lg bg-teal-900 px-6 py-3 text-left text-2xl font-medium text-white">

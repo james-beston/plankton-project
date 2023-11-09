@@ -1,4 +1,4 @@
-// app/directory/components/Phytoplankton.tsx
+// app/directory/components/Zooplankton.tsx
 
 import { zooplanktonCount, crustaceansCount, wormsCount } from '@/sanity/sanity';
 import Link from 'next/link';
@@ -32,7 +32,7 @@ export default async function Zooplankton() {
   const worms: WormCount = await wormsCount()
 
   if (!count || !crusts || !worms) {
-    return null
+    return <p>Loading...</p>
   }
 
   return (
