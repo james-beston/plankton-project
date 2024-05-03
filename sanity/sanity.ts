@@ -12,6 +12,19 @@ export function urlFor(source: any) {
 
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient));
 
+export async function getPosts() {
+  return clientFetch(
+    groq`*[_type == "post" && defined(slug)]`
+  );
+}
+
+export async function getPost(slug: string) {
+  return clientFetch(
+    groq`*[_type == "post" && slug.current == $slug][0]`,
+    { slug }
+  );
+}
+
 export async function getHome() {
   return clientFetch(
     groq`*[_type == "home"] {
